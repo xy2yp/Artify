@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green)![Version](https://img.shields.io/badge/version-1.0.0-blue)![Status](https://img.shields.io/badge/status-Active-success)
 
-**Gemini 3 Pro** 是一个基于 Web 的轻量级、高性能 AI 绘图客户端。它专为 Google Gemini 多模态模型（如 `gemini-2.0-flash-exp`）设计，提供了一个无需后端、纯前端运行的专业工作台。
+**Gemini 3 Pro** 是一个基于 Web 的轻量级、高性能 AI 绘图客户端。它专为 Google Gemini 多模态模型（如 `gemini-3-pro-image-preview`）设计，提供了一个无需后端、纯前端运行的专业工作台。
 
 除了基础的对话和绘图功能外，它还内置了**本地图片切片工厂**、**表情包制作模式**以及**并发任务管理**，所有数据均存储在本地浏览器中。
 
@@ -94,7 +94,7 @@ python -m http.server 8000
 | **渠道名称** | 用于区分不同的 Key | 官方 API |
 | **API Base URL** | 接口地址 | `https://generativelanguage.googleapis.com` |
 | **API Key** | Google AI Studio 获取的 Key | (空) |
-| **Model** | 使用的模型名称 | `gemini-2.0-flash-exp` |
+| **Model** | 使用的模型名称 | `gemini-3-pro-image-preview` |
 
 > **提示**: 如果您处于无法直接访问 Google API 的网络环境，请将 `API Base URL` 修改为您的反向代理地址（例如 Cloudflare Worker 地址）。
 
