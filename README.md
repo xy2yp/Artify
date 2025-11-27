@@ -16,7 +16,7 @@
 整个应用 **纯前端运行**，所有配置和历史记录都保存在本地浏览器中，无需后端服务。
 > 🚀 你可以将本仓库部署到 GitHub Pages 或任意静态网页托管平台，即可在线使用。
 
-<img width="384" height="192" alt="image" src="https://github.com/user-attachments/assets/0d405894-30d5-4869-93cf-42e6cb34b34c" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/0d405894-30d5-4869-93cf-42e6cb34b34c" />
 
 ---
 
