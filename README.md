@@ -3,13 +3,16 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-Active-success)
 
-##版本更新
+## 版本更新
 - 新增iOS应用端存储到相册功能，点击下载 到新页面长按保存图片
 <img width="664" height="1036" alt="image" src="https://github.com/user-attachments/assets/b56df154-c3d1-4e99-a043-c986c0b74d1a" />
+
 - 优化小红书提示词，出图更好看
 <img width="3154" height="1684" alt="image" src="https://github.com/user-attachments/assets/cf67cbbb-3dd7-4ea8-9a43-b06658510383" />
+
 - 增加流式接收
 <img width="650" height="406" alt="image" src="https://github.com/user-attachments/assets/b4164844-6183-4202-a55a-7784ee9a42a3" />
+
 - 细节优化 可以单纯文字输出 文字图片一同输出
 
 **Gemini 3 Pro 绘图工作台（全能修复版）** 是一个基于 Web 的轻量级、高性能 AI 绘图客户端。  
