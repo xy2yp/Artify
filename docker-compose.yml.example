@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  artify:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: artify
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      # 数据持久化
+      - ./data:/app/backend/data
+    environment:
+      - TZ=Asia/Shanghai
+      # ============ 安全配置 (生产环境必须修改!) ============
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=change_me_in_production
+      - JWT_SECRET=change-this-to-random-string-at-least-32-chars
+      # ============ 数据库配置 ============
+      - DATABASE_URL=sqlite:///./data/app.db
+      # ============ CORS 配置 ============
+      # 允许的前端域名 (逗号分隔，* 表示允许所有)
+      - CORS_ORIGINS=*
+      # ============ GitHub 代理配置 (可选) ============
+      - GITHUB_PROXY_HTTP=
+      - GITHUB_PROXY_HTTPS=
+      # ============ Banana 提示词同步配置 ============
+      - BANANA_SYNC_ENABLED=true
+      - BANANA_GITHUB_URL=https://raw.githubusercontent.com/glidea/banana-prompt-quicker/refs/heads/main/prompts.json
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
