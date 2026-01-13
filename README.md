@@ -1,4 +1,4 @@
-# Gemini 3 Pro Image Preview
+# Artify · 智绘 · 工作台
 
 <div align="center">
 
@@ -8,9 +8,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-**🎨 强大的 Gemini 3 Pro 图像生成工作台**
-
-[在线演示](#) | [快速开始](#快速开始) | [功能特性](#功能特性) | [贡献指南](#贡献指南)
+**🎨 强大的图像生成工作台**
 
 </div>
 
@@ -18,7 +16,9 @@
 
 ## 📖 项目简介
 
-Gemini 3 Pro Image Preview 是一个基于 Google Gemini 3 Pro 模型的现代化图像生成工作台。它提供了直观的用户界面、强大的功能和出色的用户体验，支持多种图像生成场景和创作工具。
+魔改自 [Gemini 3 Pro Image Preview](https://github.com/Tansuo2021/gemini-3-pro-image-preview) 。
+提供了直观的用户界面、强大的功能和出色的用户体验，支持多种图像生成场景和创作工具。
+从原项目的**单文件HTML**重构为现代化**ES6模块架构**.
 
 ### ✨ 核心亮点
 
@@ -29,6 +29,14 @@ Gemini 3 Pro Image Preview 是一个基于 Google Gemini 3 Pro 模型的现代�
 - 🌓 **暗黑模式** - 内置优雅的暗黑主题
 - 🔄 **对话上下文** - AI 可记住历史对话，实现连续创作
 
+### 📊 重构成果
+
+- ✅ **17个CSS模块** (分层结构: base/layout/components/modules)
+- ✅ **23个JS模块** (5172行，四层架构)
+- ✅ **API Key迁移到后端**，JWT认证
+- ✅ **ES6 Modules**，按需加载
+- ✅ **事件驱动架构**，完全解耦
+- ✅ **TypeScript-ready**，清晰的模块边界
 ---
 
 ## 🎯 功能特性
@@ -60,11 +68,6 @@ Gemini 3 Pro Image Preview 是一个基于 Google Gemini 3 Pro 模型的现代�
 - 快速搜索和使用优质提示词
 - 支持分类筛选（绘图/生活/学习/工作等）
 
-##### 📚 我的提示词
-- 管理个人提示词库
-- 添加、编辑、删除自定义提示词
-- 快速应用到对话中
-
 ##### 😊 表情包制作
 - 一键进入表情包生成模式
 - 预设表情包生成参数
@@ -86,17 +89,11 @@ Gemini 3 Pro Image Preview 是一个基于 Google Gemini 3 Pro 模型的现代�
   - OpenAI 兼容接口
 - **渠道管理**：添加、编辑、删除 API 渠道
 
-#### 💾 自动保存
-- **File System Access API**：使用浏览器原生 API
-- **本地保存**：生成的图片自动保存到本地目录
-- **不占空间**：不占用浏览器存储空间
-- **浏览器要求**：Chrome 86+ / Edge 86+
-
-#### 🌐 流式传输
-- **OpenAI 流式接收**：支持流式接收 API 响应
-- **实时显示**：实时显示生成进度
-- **整体解析**：完整解析后显示图片
-
+## 技术栈
+- **前端**: 原生JavaScript（ES6 Modules）、CSS3
+- **后端**: FastAPI + SQLite
+- **认证**: JWT Token
+- **存储**: IndexedDB（本地）+ SQLite（后端）
 ---
 
 ## 🚀 快速开始
@@ -110,25 +107,31 @@ Gemini 3 Pro Image Preview 是一个基于 Google Gemini 3 Pro 模型的现代�
 
 1. **克隆仓库**
 ```bash
-git clone https://github.com/Tansuo2021/gemini-3-pro-image-preview.git
-cd gemini-3-pro-image-preview
+git clone https://github.com/xy2yp/Artify.git
+cd Artify
 ```
 
-2. **启动本地服务器**
+2. **启动后端**
 ```bash
-# 使用 Python
-python -m http.server 8000
-
-# 或使用 Node.js
-npx serve
-
-# 或使用 PHP
-php -S localhost:8000
+cd /Artify/backend
+python main.py
 ```
 
-3. **打开浏览器**
+3. **启动前端**
+```bash
+cd /Artify
+python -m http.server 8080
+```
+
+4. **访问应用**
 ```
 http://localhost:8000
+```
+
+或者**docker部署**
+修改`dockercompose.yml`
+```
+dockercompose-up
 ```
 
 ### 配置 API
@@ -156,35 +159,6 @@ http://localhost:8000
 
 ---
 
-## 📱 浏览器兼容性
-
-| 浏览器 | 版本要求 | 核心功能 | 自动保存 |
-|--------|---------|---------|---------|
-| Chrome | 86+ | ✅ | ✅ |
-| Edge | 86+ | ✅ | ✅ |
-| Firefox | 最新版 | ✅ | ❌ |
-| Safari | iOS 14+ | ✅ | ❌ |
-
-**注意**：自动保存功能需要 File System Access API 支持（Chrome/Edge 86+）
-
----
-
-## 🎨 界面预览
-
-### 桌面端
-- 三栏布局：侧边栏 + 主内容区 + 设置面板
-- 响应式设计，自动适配不同屏幕尺寸
-
-### 移动端
-- 优化的移动端布局
-- 侧边栏滑出设计
-- 触摸友好的交互
-
-### 暗黑模式
-- 一键切换暗黑/明亮主题
-- 自动保存主题偏好
-- 完整的暗黑模式适配
-
 ---
 
 ## 🔧 配置说明
@@ -209,67 +183,16 @@ http://localhost:8000
 
 ---
 
-## 🤝 贡献指南
-
-欢迎贡献代码、报告问题或提出建议！
-
-### 贡献流程
-
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
-
-### 开发建议
-
-- 遵循现有代码风格
-- 添加必要的注释
-- 测试你的更改
-- 更新相关文档
-
----
-
-## 📝 更新日志
-
-### v1.0.0 (2026-01-04)
-- ✨ 初始版本发布
-- 🎨 完整的图像生成功能
-- 💬 对话上下文支持
-- 🛠️ XHS 灵感实验室
-- 🍌 提示词快查工具
-- ✂️ 图片切片工具
-- 📱 移动端适配
-- 🌓 暗黑模式支持
-
----
-
 ## 📄 许可证
 
 本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
 
 ---
 
-## 🙏 致谢
 
-- [Google Gemini](https://deepmind.google/technologies/gemini/) - 强大的 AI 模型
-- [Banana Prompt](https://github.com/glidea/banana-prompt-quicker) - 优质提示词库
-- [marked.js](https://marked.js.org/) - Markdown 解析
-- [JSZip](https://stuk.github.io/jszip/) - 文件压缩
-
----
-
-## 📮 联系方式
-
-- **GitHub Issues**: [提交问题](https://github.com/Tansuo2021/gemini-3-pro-image-preview/issues)
-- **Pull Requests**: [贡献代码](https://github.com/Tansuo2021/gemini-3-pro-image-preview/pulls)
-
----
-
-<div align="center">
 
 **⭐ 如果这个项目对你有帮助，请给一个 Star！**
 
-Made with ❤️ by [Tansuo2021](https://github.com/Tansuo2021)
+Made with ❤️ by [XY2YP](https://github.com/xy2yp)
 
 </div>
